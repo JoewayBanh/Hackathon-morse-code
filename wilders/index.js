@@ -1,4 +1,4 @@
-const chalk = require("chalk");
+const chalk = require("chalk")
 
 console.log(chalk.bgBlue("Daute"))
 console.log(chalk.redBright("Kaspars"))

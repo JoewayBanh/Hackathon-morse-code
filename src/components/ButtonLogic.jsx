@@ -16,7 +16,7 @@ const ButtonLogic = (props) => {
   return (
     <span>
       <button onClick={() => logBtns(props.val)} >
-        {props.val}
+        {props.val[0]}<br/><br/>{props.val[1]}
       </button>
     </span>
   )

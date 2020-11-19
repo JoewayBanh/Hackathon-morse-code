@@ -4,7 +4,9 @@ import Input_output from './components/input-output';
 import ButtonLogic from './components/ButtonLogic'
 import MorseContext from './context/MorseContext'
 
-function App() {
+
+const App = () => {
+
 
   const letters = [
     ["a", ".-"], ["b", "-..."], ["c", "-.-."], ["d", "-.."],
@@ -15,19 +17,20 @@ function App() {
     ["u", "..-"], ["v", "...-"], ["w", ".--"], ["x", "-..-"],
     ["y", "-.--"], ["z", "--.."], ["1", ".----"], ["2", "..---"],
     ["3", "...--"], ["4", "....-"], ["5", "....."], ["6", "-...."],
-    ["7", "--..."], ["8", "---.."], ["9", "----."], ["0","-----"]
-    ]
+    ["7", "--..."], ["8", "---.."], ["9", "----."], ["0", "-----"], ["Space", " "]
+  ]
 
-    const [morseCode, setMorseCode] = useState('')
-    const [textCode, setTextCode] = useState('')
+  const [morseCode, setMorseCode] = useState('')
+  const [textCode, setTextCode] = useState('')
 
-    return (
+  return (
     <div className="App">
+    
 
-    <MorseContext.Provider value={{letters, morseCode, setMorseCode, textCode, setTextCode}}>
+      <MorseContext.Provider value={{ letters, morseCode, setMorseCode, textCode, setTextCode }}>
         <Input_output />
         <ButtonLogic />
-    </MorseContext.Provider>
+      </MorseContext.Provider>
 
     </div>
   );

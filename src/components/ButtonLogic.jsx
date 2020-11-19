@@ -1,24 +1,33 @@
-import { useState, useContext } from 'react'
-import Input_output from './input-output'
+import {  useContext } from 'react'
 import MorseContext from '../context/MorseContext'
+import useSound from 'use-sound'
+import a from './a.mp3'
 
 const ButtonLogic = () => {
 
+  const [play] = useSound(a);
+  
+
+  // const soundbtn = () => {
+  //   const [play] = useSound(a);
+  //   return <button onClick={play}>Boop!</button>;
+  // };
+  
   const { letters, morseCode, setMorseCode, textCode, setTextCode } = useContext(MorseContext);
 
   const logBtns = (clickedButtonValue) => {
-    setTextCode(textCode.concat(clickedButtonValue[0]))
-    setMorseCode(morseCode.concat(clickedButtonValue[1]))
-    // console.log("THIS IS CLICKEDBUTTONCVALUE " + clickedButtonValue);
-    // console.log("THIS IS morseCode: " + morseCode);
-
-    // console.log(textCode);
-    // console.log(`This is alpha: ${val[0]}`);
-    // console.log(`This is morse: ${val[1]}`);
+    if (clickedButtonValue[0] === "Space") {
+      setTextCode(textCode.concat(" "))
+      setMorseCode(morseCode.concat(" "))
+    } else {
+      setTextCode(textCode.concat(clickedButtonValue[0]))
+      setMorseCode(morseCode.concat(clickedButtonValue[1]))
+    }
   }
-  
+
   return (
     <>
+    <button onClick={play}>Boop!</button>
       <span>
         {letters.map((e) => (
           <button onClick={() => logBtns(e)} >
@@ -26,6 +35,11 @@ const ButtonLogic = () => {
           </button>
         ))}
       </span>
+
+      
+      {/* < div >
+        <button onClick={start}>Play</button>
+      </div > */}
     </>
   )
 }

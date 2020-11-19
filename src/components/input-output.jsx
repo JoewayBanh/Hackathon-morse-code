@@ -4,15 +4,24 @@ import React, { useState, useEffect } from 'react';
 
 export default function Input_output () {
 
+    // const allowedText = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 '
+    // const allowedMorse = '.- '
+
+    const textToMorseApi = 'http://www.morsecode-api.de/encode?string=daute'
+
     const [morseCode, setMorseCode] = useState('')
     const [textCode, setTextCode] = useState('')
 
     const getMorse = () => {
-    //     // Get the API data
-    //     Axios.get(urlToSearch)
-    //     .then(console.log(`Getting url: ${urlToSearch}`))
-    //     .then(element => { setMorseCode(element.data.results) })
+        // Get the API data
+        // Axios.get(textToMorseApi)
+        // .then(e => (console.log(e.data)))
+        // .then(console.log(e => {e}))
+        // .then(element => { setMorseCode(element.data.results) })
     }
+
+
+    // useEffect(() => { getMorse() }, [textCode]);
 
     return (
         <>

@@ -1,14 +1,33 @@
 import './App.css';
+import React, { useState, useContext } from 'react';
 import Input_output from './components/input-output';
-import ShowButtons from './components/Buttons';
+import ButtonLogic from './components/ButtonLogic'
+import MorseContext from './context/MorseContext'
 
 function App() {
-  return (
+
+  const letters = [
+    ["a", ".-"], ["b", "-..."], ["c", "-.-."], ["d", "-.."],
+    ["e", "."], ["f", "..-."], ["g", "--."], ["h", "...."],
+    ["i", ".."], ["j", ".---"], ["k", "-.-"], ["l", ".-.."],
+    ["m", "--"], ["n", "-."], ["o", "---"], ["p", ".--."],
+    ["q", "--.-"], ["r", ".-."], ["s", "..."], ["t", "-"],
+    ["u", "..-"], ["v", "...-"], ["w", ".--"], ["x", "-..-"],
+    ["y", "-.--"], ["z", "--.."], ["1", ".----"], ["2", "..---"],
+    ["3", "...--"], ["4", "....-"], ["5", "....."], ["6", "-...."],
+    ["7", "--..."], ["8", "---.."], ["9", "----."], ["0","-----"]
+    ]
+
+    const [morseCode, setMorseCode] = useState('')
+    const [textCode, setTextCode] = useState('')
+
+    return (
     <div className="App">
 
-      <Input_output />
-
-      <ShowButtons />
+    <MorseContext.Provider value={{letters, morseCode, setMorseCode, textCode, setTextCode}}>
+        <Input_output />
+        <ButtonLogic />
+    </MorseContext.Provider>
 
     </div>
   );

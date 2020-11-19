@@ -1,24 +1,32 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import Input_output from './input-output'
+import MorseContext from '../context/MorseContext'
 
-const ButtonLogic = (props) => {
-  const [alphaLetter, setAlphaLetter] = useState();
-  const [morseLetter, setMorseLetter] = useState();
+const ButtonLogic = () => {
+
+  const { letters, morseCode, setMorseCode, textCode, setTextCode } = useContext(MorseContext);
 
   const logBtns = (clickedButtonValue) => {
-    setAlphaLetter(props.val[0])
-    setMorseLetter(props.val[1])
+    setTextCode(textCode.concat(clickedButtonValue[0]))
+    setMorseCode(morseCode.concat(clickedButtonValue[1]))
+    // console.log("THIS IS CLICKEDBUTTONCVALUE " + clickedButtonValue);
+    // console.log("THIS IS morseCode: " + morseCode);
 
-    props.handlePassInfoToParent(clickedButtonValue.concat(props.search))
-    console.log(`This is alpha: ${props.val[0]}`);
-    console.log(`This is morse: ${props.val[1]}`);
+    // console.log(textCode);
+    // console.log(`This is alpha: ${val[0]}`);
+    // console.log(`This is morse: ${val[1]}`);
   }
-
+  
   return (
-    <span>
-      <button onClick={() => logBtns(props.val)} >
-        {props.val[0]}<br/><br/>{props.val[1]}
-      </button>
-    </span>
+    <>
+      <span>
+        {letters.map((e) => (
+          <button onClick={() => logBtns(e)} >
+            {e[0]}<br /><br />{e[1]}
+          </button>
+        ))}
+      </span>
+    </>
   )
 }
 

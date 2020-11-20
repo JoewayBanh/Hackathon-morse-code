@@ -40,11 +40,8 @@ import audio9 from './Audio/9.mp3'
 
 const ButtonLogic = () => {
 
-  // const [sound] = useSound(audio)
-
   const { letters, textCode, setTextCode } = useContext(MorseContext);
-  
-  
+
   const [sounda] = useSound(audioa)
   const [soundb] = useSound(audiob)
   const [soundc] = useSound(audioc)
@@ -81,57 +78,22 @@ const ButtonLogic = () => {
   const [sound7] = useSound(audio7)
   const [sound8] = useSound(audio8)
   const [sound9] = useSound(audio9)
-  
-  let soundOn = [sounda,
-    soundb,
-    soundc,
-    soundd,
-    sounde,
-    soundf,
-    soundg,
-    soundh,
-    soundi,
-    soundj,
-    soundk,
-    soundl,
-    soundm,
-    soundn,
-    soundo,
-    soundp,
-    soundq,
-    soundr,
-    sounds,
-    soundt,
-    soundu,
-    soundv,
-    soundw,
-    soundx,
-    soundy, soundz, sound0, sound1, sound2, sound3, sound4, sound5, sound6, sound7, sound8, sound9]
-  // let chooseSound = `sound${letters[0]}`
-  // const chooseSound = (e) => {
-  //   switch (letters[e][0]) {
-  //     case "a":
-  //      return sounda
-  //       break;
-  //     case "b":
-  //      return soundb
-  //       break;
-  //     case "c":
-  //       return soundc
-  //       break;
-  //     default:
-  //       return ""
-  //       break;
-  //   }}
+
+  let soundOn = [sounda, soundb, soundc, soundd, sounde, soundf,
+    soundg, soundh, soundi, soundj, soundk, soundl,
+    soundm, soundn, soundo, soundp, soundq, soundr,
+    sounds, soundt, soundu, soundv, soundw, soundx,
+    soundy, soundz, sound0, sound1, sound2, sound3,
+    sound4, sound5, sound6, sound7, sound8, sound9]
+
   const logBtns = (clickedButtonValue) => {
     if (clickedButtonValue[0] === "Space") {
       setTextCode(textCode.concat(" "))
-      // setMorseCode(morseCode.concat(" "))
     } else {
       setTextCode(textCode.concat(clickedButtonValue[0]))
-      // setMorseCode(morseCode.concat(clickedButtonValue[1]))
     }
   }
+
   const twoFunc = (e) => {
     switch (letters[e[2]][0]) {
       case 'a':
@@ -206,6 +168,7 @@ const ButtonLogic = () => {
         return soundOn[e[2]]()
     }
   }
+
   return (
     <>
       <span>

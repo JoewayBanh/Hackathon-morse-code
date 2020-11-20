@@ -1,6 +1,7 @@
 import ButtonLogic from './ButtonLogic'
 import { useState } from 'react'
 
+
 const letters = [
     ["a", ".-"], ["b", "-..."], ["c", "-.-."], ["d", "-.."],
     ["e", "."], ["f", "..-."], ["g", "--."], ["h", "...."],
@@ -16,6 +17,8 @@ const letters = [
 const ShowButtons = () => {
     const [search, setSearch] = useState([]);
 
+    
+
     const getValueFromChild = (valueFromChild) => {
         setSearch(valueFromChild)
         console.log("THIS IS SEARCH: " + search);
@@ -26,6 +29,7 @@ const ShowButtons = () => {
             {letters.map((e) => (
                 <ButtonLogic key={e} val={e} setSearch={setSearch} search={search} handlePassInfoToParent={getValueFromChild} />
             ))}
+           
         </>
     )
 }

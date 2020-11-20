@@ -1,4 +1,5 @@
-import { useContext } from 'react'
+
+import React, { useContext, useState } from 'react'
 import MorseContext from '../context/MorseContext'
 import useSound from 'use-sound'
 import audioa from './Audio/a.mp3'
@@ -42,42 +43,44 @@ const ButtonLogic = () => {
 
   const { letters, textCode, setTextCode } = useContext(MorseContext);
 
-  const [sounda] = useSound(audioa)
-  const [soundb] = useSound(audiob)
-  const [soundc] = useSound(audioc)
-  const [soundd] = useSound(audiod)
-  const [sounde] = useSound(audioe)
-  const [soundf] = useSound(audiof)
-  const [soundg] = useSound(audiog)
-  const [soundh] = useSound(audioh)
-  const [soundi] = useSound(audioi)
-  const [soundj] = useSound(audioj)
-  const [soundk] = useSound(audiok)
-  const [soundl] = useSound(audiol)
-  const [soundm] = useSound(audiom)
-  const [soundn] = useSound(audion)
-  const [soundo] = useSound(audioo)
-  const [soundp] = useSound(audiop)
-  const [soundq] = useSound(audioq)
-  const [soundr] = useSound(audior)
-  const [sounds] = useSound(audios)
-  const [soundt] = useSound(audiot)
-  const [soundu] = useSound(audiou)
-  const [soundv] = useSound(audiov)
-  const [soundw] = useSound(audiow)
-  const [soundx] = useSound(audiox)
-  const [soundy] = useSound(audioy)
-  const [soundz] = useSound(audioz)
-  const [sound0] = useSound(audio0)
-  const [sound1] = useSound(audio1)
-  const [sound2] = useSound(audio2)
-  const [sound3] = useSound(audio3)
-  const [sound4] = useSound(audio4)
-  const [sound5] = useSound(audio5)
-  const [sound6] = useSound(audio6)
-  const [sound7] = useSound(audio7)
-  const [sound8] = useSound(audio8)
-  const [sound9] = useSound(audio9)
+
+
+  const [sounda] = useSound(audioa, { interrupt: true })
+  const [soundb] = useSound(audiob, { interrupt: true })
+  const [soundc] = useSound(audioc, { interrupt: true })
+  const [soundd] = useSound(audiod, { interrupt: true })
+  const [sounde] = useSound(audioe, { interrupt: true })
+  const [soundf] = useSound(audiof, { interrupt: true })
+  const [soundg] = useSound(audiog, { interrupt: true })
+  const [soundh] = useSound(audioh, { interrupt: true })
+  const [soundi] = useSound(audioi, { interrupt: true })
+  const [soundj] = useSound(audioj, { interrupt: true })
+  const [soundk] = useSound(audiok, { interrupt: true })
+  const [soundl] = useSound(audiol, { interrupt: true })
+  const [soundm] = useSound(audiom, { interrupt: true })
+  const [soundn] = useSound(audion, { interrupt: true })
+  const [soundo] = useSound(audioo, { interrupt: true })
+  const [soundp] = useSound(audiop, { interrupt: true })
+  const [soundq] = useSound(audioq, { interrupt: true })
+  const [soundr] = useSound(audior, { interrupt: true })
+  const [sounds] = useSound(audios, { interrupt: true })
+  const [soundt] = useSound(audiot, { interrupt: true })
+  const [soundu] = useSound(audiou, { interrupt: true })
+  const [soundv] = useSound(audiov, { interrupt: true })
+  const [soundw] = useSound(audiow, { interrupt: true })
+  const [soundx] = useSound(audiox, { interrupt: true })
+  const [soundy] = useSound(audioy, { interrupt: true })
+  const [soundz] = useSound(audioz, { interrupt: true })
+  const [sound0] = useSound(audio0, { interrupt: true })
+  const [sound1] = useSound(audio1, { interrupt: true })
+  const [sound2] = useSound(audio2, { interrupt: true })
+  const [sound3] = useSound(audio3, { interrupt: true })
+  const [sound4] = useSound(audio4, { interrupt: true })
+  const [sound5] = useSound(audio5, { interrupt: true })
+  const [sound6] = useSound(audio6, { interrupt: true })
+  const [sound7] = useSound(audio7, { interrupt: true })
+  const [sound8] = useSound(audio8, { interrupt: true })
+  const [sound9] = useSound(audio9, { interrupt: true })
 
   let soundOn = [sounda, soundb, soundc, soundd, sounde, soundf,
     soundg, soundh, soundi, soundj, soundk, soundl,
@@ -89,7 +92,9 @@ const ButtonLogic = () => {
   const logBtns = (clickedButtonValue) => {
     if (clickedButtonValue[0] === "Space") {
       setTextCode(textCode.concat(" "))
-    } else {
+    } else if (clickedButtonValue[0] === "Separate letters") {
+      setTextCode(textCode.concat(" ")) }
+    else {
       setTextCode(textCode.concat(clickedButtonValue[0]))
     }
   }

@@ -18,10 +18,15 @@ const ButtonLogic = () => {
   const logBtns = (clickedButtonValue) => {
     if (clickedButtonValue[0] === "Space") {
       setTextCode(textCode.concat(" "))
-      setMorseCode(morseCode.concat(" "))
-    } else {
+      // setMorseCode(morseCode.concat("/"))
+    } 
+    else if(clickedButtonValue[0] === "Separate letters") {
+      // setTextCode(textCode.concat(""))
+      // setMorseCode(morseCode.concat("\\"))
+    }
+      else {
       setTextCode(textCode.concat(clickedButtonValue[0]))
-      setMorseCode(morseCode.concat(clickedButtonValue[1]))
+      // setMorseCode(morseCode.concat(clickedButtonValue[1]))
     }
   }
 

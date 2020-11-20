@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import './App.css';
 import React, { useState, useContext } from 'react';
 import Input_output from './components/input-output';
@@ -22,9 +23,16 @@ const App = () => {
 
   const [morseCode, setMorseCode] = useState('')
   const [textCode, setTextCode] = useState('')
+=======
+// import './components/StyleContent.css';
+import Content from './components/Content';
+import Btn from './components/Btn';
+import './components/StyleBtn.css';
+>>>>>>> 669b308d7b3b72030fc3510cbd87a01cc7d38eb8
 
   return (
     <div className="App">
+<<<<<<< HEAD
     
 
       <MorseContext.Provider value={{ letters, morseCode, setMorseCode, textCode, setTextCode }}>
@@ -32,6 +40,10 @@ const App = () => {
         <ButtonLogic />
       </MorseContext.Provider>
 
+=======
+      {/* <Content /> */}
+      <Btn />
+>>>>>>> 669b308d7b3b72030fc3510cbd87a01cc7d38eb8
     </div>
   );
 }

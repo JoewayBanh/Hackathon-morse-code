@@ -1,11 +1,10 @@
 import {  useContext } from 'react'
 import MorseContext from '../context/MorseContext'
 import useSound from 'use-sound'
-import a from './a.mp3'
 
 const ButtonLogic = () => {
 
-  const [play] = useSound(a);
+  
   
 
   // const soundbtn = () => {
@@ -32,7 +31,7 @@ const ButtonLogic = () => {
 
   return (
     <>
-    <button onClick={play}>Boop!</button>
+    
       <span>
         {letters.map((e) => (
           <button onClick={() => logBtns(e)} >

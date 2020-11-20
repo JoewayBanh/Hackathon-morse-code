@@ -21,6 +21,13 @@ export default function Input_output() {
             // I bet it can be simplified
                 let translation = ''
                 for (let i = 0; i < textCode.length; i++) {
+
+                    // If user inserts a space, then 3 spaces are inserted
+                    // in morseCode, as a word division
+                    if (textCode[i] === ' ') {
+                        translation = translation+'   '
+                    }
+
                     for (let j = 0; j < letters.length; j++) {
                         if (letters[j].includes(textCode[i])) {
                             translation = translation+(letters[j][1]+' ')

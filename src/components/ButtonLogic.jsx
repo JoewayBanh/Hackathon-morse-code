@@ -42,9 +42,9 @@ const ButtonLogic = () => {
 
   // const [sound] = useSound(audio)
 
-  const { letters, morseCode, setMorseCode, textCode, setTextCode } = useContext(MorseContext);
-
-  // const audio = [audioa,audiob]
+  const { letters, textCode, setTextCode } = useContext(MorseContext);
+  
+  
   const [sounda] = useSound(audioa)
   const [soundb] = useSound(audiob)
   const [soundc] = useSound(audioc)
@@ -81,11 +81,33 @@ const ButtonLogic = () => {
   const [sound7] = useSound(audio7)
   const [sound8] = useSound(audio8)
   const [sound9] = useSound(audio9)
-
-
+  
+  let soundOn = [sounda,
+    soundb,
+    soundc,
+    soundd,
+    sounde,
+    soundf,
+    soundg,
+    soundh,
+    soundi,
+    soundj,
+    soundk,
+    soundl,
+    soundm,
+    soundn,
+    soundo,
+    soundp,
+    soundq,
+    soundr,
+    sounds,
+    soundt,
+    soundu,
+    soundv,
+    soundw,
+    soundx,
+    soundy, soundz, sound0, sound1, sound2, sound3, sound4, sound5, sound6, sound7, sound8, sound9]
   // let chooseSound = `sound${letters[0]}`
-
-
   // const chooseSound = (e) => {
   //   switch (letters[e][0]) {
   //     case "a":
@@ -97,51 +119,108 @@ const ButtonLogic = () => {
   //     case "c":
   //       return soundc
   //       break;
-
   //     default:
   //       return ""
   //       break;
   //   }}
-
   const logBtns = (clickedButtonValue) => {
     if (clickedButtonValue[0] === "Space") {
       setTextCode(textCode.concat(" "))
       // setMorseCode(morseCode.concat(" "))
-
     } else {
       setTextCode(textCode.concat(clickedButtonValue[0]))
       // setMorseCode(morseCode.concat(clickedButtonValue[1]))
     }
   }
-
- 
+  const twoFunc = (e) => {
+    switch (letters[e[2]][0]) {
+      case 'a':
+        return soundOn[e[2]]()
+      case 'b':
+        return soundOn[e[2]]()
+      case 'c':
+        return soundOn[e[2]]()
+      case 'd':
+        return soundOn[e[2]]()
+      case 'e':
+        return soundOn[e[2]]()
+      case 'f':
+        return soundOn[e[2]]()
+      case 'g':
+        return soundOn[e[2]]()
+      case 'h':
+        return soundOn[e[2]]()
+      case 'i':
+        return soundOn[e[2]]()
+      case 'j':
+        return soundOn[e[2]]()
+      case 'k':
+        return soundOn[e[2]]()
+      case 'l':
+        return soundOn[e[2]]()
+      case 'm':
+        return soundOn[e[2]]()
+      case 'n':
+        return soundOn[e[2]]()
+      case 'o':
+        return soundOn[e[2]]()
+      case 'p':
+        return soundOn[e[2]]()
+      case 'q':
+        return soundOn[e[2]]()
+      case 'r':
+        return soundOn[e[2]]()
+      case 's':
+        return soundOn[e[2]]()
+      case 't':
+        return soundOn[e[2]]()
+      case 'u':
+        return soundOn[e[2]]()
+      case 'v':
+        return soundOn[e[2]]()
+      case 'w':
+        return soundOn[e[2]]()
+      case 'x':
+        return soundOn[e[2]]()
+      case 'y':
+        return soundOn[e[2]]()
+      case 'z':
+        return soundOn[e[2]]()
+      case '1':
+        return soundOn[e[2]]()
+      case '2':
+        return soundOn[e[2]]()
+      case '3':
+        return soundOn[e[2]]()
+      case '4':
+        return soundOn[e[2]]()
+      case '5':
+        return soundOn[e[2]]()
+      case '6':
+        return soundOn[e[2]]()
+      case '7':
+        return soundOn[e[2]]()
+      case '8':
+        return soundOn[e[2]]()
+      case '9':
+        return soundOn[e[2]]()
+    }
+  }
   return (
     <>
       <span>
         {letters.map((e) => (
-          <button key={e} 
-          // onClick={() => logBtns(e)}
-          
-          onClick={e[0] === "a" ? sounda : e[0] === "b" ? soundb : e[0] === "c" ? soundc :
-          e[0] === "d" ? soundd : e[0] === "e" ? sounde : e[0] === "f" ? soundf :
-            e[0] === "g" ? soundg : e[0] === "h" ? soundh : e[0] === "i" ? soundi :
-              e[0] === "j" ? soundj : e[0] === "k" ? soundk : e[0] === "l" ? soundl :
-                e[0] === "m" ? soundm : e[0] === "n" ? soundn : e[0] === "o" ? soundo :
-                  e[0] === "p" ? soundp : e[0] === "q" ? soundq : e[0] === "r" ? soundr :
-                    e[0] === "s" ? sounds : e[0] === "t" ? soundt : e[0] === "u" ? soundu :
-                      e[0] === "v" ? soundv : e[0] === "w" ? soundw : e[0] === "x" ? soundx :
-                        e[0] === "y" ? soundy : e[0] === "z" ? soundz : e[0] === "0" ? sound0 :
-                          e[0] === "1" ? sound1 : e[0] === "2" ? sound2 : e[0] === "3" ? sound3 :
-                            e[0] === "4" ? sound4 : e[0] === "5" ? sound5 : e[0] === "6" ? sound6 :
-                              e[0] === "7" ? sound7 : e[0] === "8" ? sound8 : e[0] === "9" ? sound9 : ""}
-      >
+          <button key={e}
+            onClick={() => {
+              twoFunc(e)
+              logBtns(e)
+            }}
+          >
             {e[0]}<br /><br />{e[1]}
           </button>
         ))}
       </span>
-
     </>
   )
 }
-
 export default ButtonLogic
